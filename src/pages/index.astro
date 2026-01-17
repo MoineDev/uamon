@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ServerCard from "../components/ServerCard.astro";
+
+const servers = [
+  {
+    name: "QWERTY",
+    tags1: "АНАРХІЯ, МІНІ ІГРИ",
+    tags2: "1.12 - 1.21.11, PVP, PVE",
+    ip: "mc.qwerty.ua",
+    online: "123/2026",
+    isOnline: true,
+    api: "https://api.mcsrvstat.us/2/mc.qwerty.ua",
+  },
+];
+---
+
+<Layout title="UAMON">
+  <!-- Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {servers.map((s) => <ServerCard server={s} />)}
+  </div>
+
+  <!-- Pagination mock -->
+  <div class="flex items-center justify-center gap-4 mt-10">
+    <button class="w-12 h-12 rounded-xl bg-neutral-800/60 border border-white/10 text-white font-extrabold">«</button>
+    <button class="w-12 h-12 rounded-xl bg-neutral-800/60 border border-white/10 text-white font-extrabold">1</button>
+    <button class="w-12 h-12 rounded-xl bg-neutral-800/60 border border-white/10 text-white font-extrabold">2</button>
+    <button class="w-12 h-12 rounded-xl bg-neutral-800/60 border border-white/10 text-white font-extrabold">»</button>
+  </div>
+</Layout>
