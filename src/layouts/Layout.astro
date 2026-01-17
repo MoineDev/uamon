@@ -12,31 +12,46 @@ import "../styles/global.css";
   </head>
 
   <body class="min-h-screen bg-neutral-700 text-white">
-    <!-- Header -->
-    <header class="bg-neutral-800/70 border-b border-white/10">
+    <!-- Header (PC only) -->
+    <header class="hidden md:block bg-neutral-800/70 border-b border-white/10">
       <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
         <a href="/" class="font-extrabold tracking-wide">
           UAMON.ONLINE
         </a>
 
         <nav class="flex items-center gap-6 text-sm font-bold uppercase tracking-wider text-white/90">
-          <!--<a href="#filter" class="hover:text-white">Фільтр</a>
-          <a href="#sort" class="hover:text-white">Сортування</a> -->
-          <a href="https://discord.gg/yourlink" class="hover:text-white">Діскорд</a>
+          <a
+            href="https://discord.gg/zPA5s2mA82"
+            class="hover:text-white"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Діскорд
+          </a>
         </nav>
       </div>
     </header>
 
     <!-- Main -->
     <main class="mx-auto max-w-6xl px-4 py-6">
+      <!-- Mobile big logo (ONLY mobile, NOT sticky) -->
+      <div class="md:hidden flex justify-center mb-6">
+        <img
+          src="/logo-mobile.png"
+          alt="UAMON"
+          class="w-70 max-w-[90%] h-auto opacity-95"
+          loading="eager"
+        />
+      </div>
+
       <slot />
     </main>
 
-    <!-- Footer -->
+    <!-- Footer (same for all, ok for MVP) -->
     <footer class="bg-neutral-800/70 border-t border-white/10">
       <div class="mx-auto max-w-6xl px-4 py-6 text-center font-extrabold uppercase tracking-wider text-white/90">
         Додати сервер на наш моніторинг можна через діскорд<br />
-        ©UAMON.ONLINE Всі права захищені
+        © UAMON.ONLINE — Всі права захищені
       </div>
     </footer>
   </body>
