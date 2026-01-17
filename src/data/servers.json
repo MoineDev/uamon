@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "qwerty",
+    "name": "QWERTY",
+    "tags1": "АНАРХІЯ, МІНІ ІГРИ",
+    "tags2": "1.12 - 1.21.11, PVP, PVE",
+    "ip": "mc.qwerty.ua",
+    "api": "https://api.mcsrvstat.us/2/mc.qwerty.ua"
+  },
+  {
+    "slug": "chillzone",
+    "name": "Chill Zone",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "play.chillzone.ua",
+    "api": "https://api.mcsrvstat.us/2/play.chillzone.ua"
+  }
+]

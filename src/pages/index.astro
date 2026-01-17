@@ -1,24 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ServerCard from "../components/ServerCard.astro";
-
-const servers = [
-  {
-    name: "QWERTY",
-    tags1: "АНАРХІЯ, МІНІ ІГРИ",
-    tags2: "1.12 - 1.21.11, PVP, PVE",
-    ip: "mc.qwerty.ua",
-    online: "123/2026",
-    isOnline: true,
-    api: "https://api.mcsrvstat.us/2/mc.qwerty.ua",
-  },
-];
+import servers from "../data/servers.json";
 ---
 
 <Layout title="UAMON">
   <!-- Grid -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {servers.map((s) => <ServerCard server={s} />)}
+    {servers.map((server) => (
+  <ServerCard server={server} />
+))}
   </div>
 
   <!-- Pagination mock -->
