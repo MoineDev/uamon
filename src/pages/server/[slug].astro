@@ -1,0 +1,137 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import servers from "../../data/servers.json";
+
+export function getStaticPaths() {
+  return servers.map((s) => ({
+    params: { slug: s.slug },
+    props: { server: s },
+  }));
+}
+
+const { server } = Astro.props;
+---
+
+<Layout title={`${server.name} — UAMON`}>
+  <!-- Передаємо API сюди (НЕ в body) -->
+  <main class="mx-auto max-w-3xl px-4 py-8" data-api={server.api}>
+    <a href="/" class="text-sm text-white/70 hover:text-white underline">← Назад</a>
+
+    <div class="mt-4 rounded-2xl bg-neutral-800/60 border border-white/10 p-6">
+      <div class="flex items-start gap-4">
+        <img
+          src={server.icon ? server.icon : "/icons/default.png"}
+          alt={server.name}
+          class="w-20 h-20 rounded-2xl object-cover bg-white/10 shrink-0"
+          loading="lazy"
+          onerror="this.onerror=null; this.src='/icons/default.png';"
+        />
+
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl font-extrabold text-white truncate">{server.name}</h1>
+            <!-- Крапка: спочатку сіра, потім стане зелена/червона -->
+            <span class="status-dot w-3 h-3 rounded-full bg-gray-500 shrink-0"></span>
+          </div>
+
+          <p class="text-sm font-bold text-white/80 uppercase mt-1">{server.tags1}</p>
+          <p class="text-sm font-bold text-white/60 uppercase">{server.tags2}</p>
+
+          <div class="mt-3 flex flex-wrap items-center gap-3">
+            <span class="text-sm text-white/80">
+              IP: <span class="font-semibold text-white">{server.ip}</span>
+            </span>
+
+            <button
+              type="button"
+              class="copy-ip text-xs text-neutral-300 hover:text-white underline"
+              data-ip={server.ip}
+            >
+              Скопіювати IP
+            </button>
+
+            <span class="text-sm text-white/80">
+              Онлайн: <span class="js-online">…</span>
+            </span>
+
+            {server.discord && (
+              <a
+                href={server.discord}
+                target="_blank"
+                rel="noreferrer"
+                class="text-xs text-neutral-300 hover:text-white underline"
+              >
+                Discord
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {server.description && (
+        <div class="mt-6">
+          <h2 class="text-lg font-extrabold text-white">Опис</h2>
+          <p class="mt-2 text-white/80 leading-relaxed">{server.description}</p>
+        </div>
+      )}
+    </div>
+
+    <!-- ОДИН скрипт: копіювання + онлайн + крапка -->
+    <script is:inline>
+      (function () {
+        const root = document.querySelector("main[data-api]");
+        if (!root) return;
+
+        // 1) Copy IP
+        const copyBtn = root.querySelector(".copy-ip");
+        if (copyBtn) {
+          copyBtn.addEventListener("click", async () => {
+            const ip = copyBtn.dataset.ip || "";
+            try {
+              await navigator.clipboard.writeText(ip);
+              const oldText = copyBtn.textContent;
+              copyBtn.textContent = "Скопійовано!";
+              copyBtn.classList.add("text-green-400");
+              setTimeout(() => {
+                copyBtn.textContent = oldText;
+                copyBtn.classList.remove("text-green-400");
+              }, 1500);
+            } catch (e) {
+              // якщо clipboard заблокований браузером
+              alert("Не вдалося скопіювати. Спробуй вручну: " + ip);
+            }
+          });
+        }
+
+        // 2) Online + dot
+        async function loadOnline() {
+          const api = root.dataset.api;
+          const onlineEl = root.querySelector(".js-online");
+          const dotEl = root.querySelector(".status-dot");
+
+          if (!api || !onlineEl || !dotEl) return;
+
+          try {
+            const res = await fetch(api, { cache: "no-store" });
+            const data = await res.json();
+
+            const isUp = data?.online === true;
+            const online = data?.players?.online ?? 0;
+            const max = data?.players?.max ?? 0;
+
+            onlineEl.textContent = isUp ? `${online}/${max}` : "офлайн";
+
+            dotEl.classList.remove("bg-gray-500", "bg-green-500", "bg-red-500");
+            dotEl.classList.add(isUp ? "bg-green-500" : "bg-red-500");
+          } catch (e) {
+            onlineEl.textContent = "—";
+            dotEl.classList.remove("bg-green-500", "bg-red-500");
+            dotEl.classList.add("bg-gray-500");
+          }
+        }
+
+        loadOnline();
+      })();
+    </script>
+  </main>
+</Layout>
