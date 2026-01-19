@@ -4,7 +4,7 @@
   "slug": "server1",
   "name": "server1",
   "ip": "play.server1.ua",
-  "api": "https://api.mcsrvstat.us/2/play.chillzone.space",
+  "api": "https://api.mcsrvstat.us/2/chillzone.space",
   "discord": "https://discord.gg/yourlink",
   "description": "Короткий опис сервера. Правила, режими, особливості.",
   "icon": "/icons/default.png",
