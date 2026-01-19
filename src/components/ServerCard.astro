@@ -6,6 +6,7 @@ const { server } = Astro.props;
   href={`/server/${server.slug}`}
   data-server-card
   data-api={server.api}
+  data-ip={server.ip}
   class="block rounded-2xl bg-neutral-800/60 border border-white/10
          p-4 flex gap-4 items-start
          hover:bg-neutral-800/80 transition cursor-pointer"
@@ -46,7 +47,6 @@ const { server } = Astro.props;
                bg-neutral-700/70 border border-white/10
                text-white/90 hover:bg-neutral-700 hover:text-white
                active:scale-[0.97] transition"
-        data-ip={server.ip}
       >
         Скопіювати IP
       </button>
@@ -56,62 +56,4 @@ const { server } = Astro.props;
       </p>
     </div>
   </div>
-
-  <script is:inline>
-    (function () {
-      const cards = document.querySelectorAll("[data-server-card]");
-
-      async function loadOnline(card) {
-        const api = card.dataset.api;
-        const onlineEl = card.querySelector(".js-online");
-        const dot = card.querySelector(".status-dot");
-
-        try {
-          const res = await fetch(api, { cache: "no-store" });
-          const data = await res.json();
-
-          const isUp = data?.online === true;
-          const online = data?.players?.online ?? 0;
-          const max = data?.players?.max ?? 0;
-
-          onlineEl.textContent = isUp ? `${online}/${max}` : "офлайн";
-
-          dot.classList.remove("bg-gray-500", "bg-green-500", "bg-red-500");
-          dot.classList.add(isUp ? "bg-green-500" : "bg-red-500");
-
-          card.classList.toggle("opacity-60", !isUp);
-        } catch {
-          onlineEl.textContent = "офлайн";
-          dot.classList.remove("bg-green-500");
-          dot.classList.add("bg-red-500");
-          card.classList.add("opacity-60");
-        }
-      }
-
-      cards.forEach((card) => {
-        loadOnline(card);
-        setInterval(() => loadOnline(card), 30000);
-
-        const btn = card.querySelector(".copy-ip");
-        if (btn) {
-          btn.addEventListener("click", async (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const ip = btn.dataset.ip;
-            await navigator.clipboard.writeText(ip);
-
-            const old = btn.textContent;
-            btn.textContent = "Скопійовано!";
-            btn.classList.add("text-green-300");
-
-            setTimeout(() => {
-              btn.textContent = old;
-              btn.classList.remove("text-green-300");
-            }, 1200);
-          });
-        }
-      });
-    })();
-  </script>
 </a>

@@ -11,20 +11,25 @@ import "../styles/global.css";
     <title>{title}</title>
   </head>
 
-  <body class="min-h-screen bg-neutral-700 text-white">
-    <!-- Header (PC only) -->
-    <header class="hidden md:block bg-neutral-800/70 border-b border-white/10">
-      <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
-        <a href="/" class="font-extrabold tracking-wide">
-          UAMON.ONLINE
-        </a>
+  <!-- BODY як flex-контейнер, щоб футер був ЗАВЖДИ знизу -->
+  <body class="min-h-screen bg-neutral-800 text-white flex flex-col">
+
+    <!-- Header (ТІЛЬКИ ПК) -->
+    <header class="hidden md:block border-b border-white/10 bg-neutral-800">
+      <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+        <img
+          src="/logo-mobile.png"
+          alt="UAMON"
+          class="w-56 h-auto opacity-95"
+          loading="eager"
+        />
 
         <nav class="flex items-center gap-6 text-sm font-bold uppercase tracking-wider text-white/90">
           <a
             href="https://discord.gg/zPA5s2mA82"
-            class="hover:text-white"
             target="_blank"
             rel="noreferrer"
+            class="hover:text-white"
           >
             Діскорд
           </a>
@@ -32,14 +37,15 @@ import "../styles/global.css";
       </div>
     </header>
 
-    <!-- Main -->
-    <main class="mx-auto max-w-6xl px-4 py-6">
-      <!-- Mobile big logo (ONLY mobile, NOT sticky) -->
+    <!-- MAIN (розтягується і штовхає футер вниз) -->
+    <main class="mx-auto w-full max-w-6xl px-4 py-6 flex-1">
+
+      <!-- Велике лого ТІЛЬКИ на мобілці -->
       <div class="md:hidden flex justify-center mb-6">
         <img
           src="/logo-mobile.png"
           alt="UAMON"
-          class="w-70 max-w-[90%] h-auto opacity-95"
+          class="w-[90%] max-w-[320px] h-auto opacity-95"
           loading="eager"
         />
       </div>
@@ -47,12 +53,34 @@ import "../styles/global.css";
       <slot />
     </main>
 
-    <!-- Footer (same for all, ok for MVP) -->
-    <footer class="bg-neutral-800/70 border-t border-white/10">
-      <div class="mx-auto max-w-6xl px-4 py-6 text-center font-extrabold uppercase tracking-wider text-white/90">
-        Додати сервер на наш моніторинг можна через діскорд<br />
-        © UAMON.ONLINE — Всі права захищені
+    <!-- FOOTER (до самого низу, без світлого фону після) -->
+    <footer class="border-t border-white/10 bg-neutral-800">
+      <div class="mx-auto max-w-6xl px-4 py-6 text-center text-sm text-white/80 space-y-2">
+
+        <div class="font-extrabold uppercase tracking-wider text-white/90">
+          Додати сервер можна через наш Discord
+        </div>
+
+        <div>
+          © UAMON.ONLINE — Всі права захищені
+        </div>
+
+        <div class="text-white/60 leading-relaxed">
+          UAMON — незалежний проєкт і не пов’язаний з Mojang Studios або Microsoft.
+          Minecraft є торговою маркою Mojang Studios.
+        </div>
+
+        <!-- Соцмережі -->
+        <div class="pt-3 flex flex-wrap justify-center gap-x-4 gap-y-2 font-bold uppercase tracking-wider text-xs text-white/80">
+          <a href="#" class="hover:text-white underline">YouTube</a>
+          <a href="#" class="hover:text-white underline">TikTok</a>
+          <a href="#" class="hover:text-white underline">Telegram</a>
+          <a href="https://discord.gg/zPA5s2mA82" target="_blank" class="hover:text-white underline">Discord</a>
+          <a href="mailto:contact@uamon.online" class="hover:text-white underline">Email</a>
+        </div>
+
       </div>
     </footer>
+
   </body>
 </html>

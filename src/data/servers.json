@@ -1,7 +1,8 @@
 [
+
   {
-    "slug": "chillzone",
-    "name": "Chill Zone",
+    "slug": "server1",
+    "name": "server1",
     "tags1": "ВИЖИВАННЯ",
     "tags2": "1.20.1, PVE",
     "ip": "chillzone.space",
@@ -9,6 +10,138 @@
     "discord": "https://discord.gg/yourlink",
     "description": "Короткий опис сервера. Правила, режими, особливості.",
     "icon": "/icons/qwerty.jpg"
+  },
+
+    {
+    "slug": "server2",
+    "name": "server2",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/topiacube.org",
+    "discord": "Zonehttps://discord.gg/yourlink",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
+  },
+
+    {
+    "slug": "ctrtr",
+    "name": "server3",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/chillzone.space",
+    "discord": "https://discord.gg/revage.net",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
+  },
+
+    {
+    "slug": "sfdg",
+    "name": "server4",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/topiacube.org",
+    "discord": "https://discord.gg/yourlink",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
+  },
+
+    {
+    "slug": "sfdsfssa",
+    "name": "server5",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/topiacube.org",
+    "discord": "https://discord.gg/ydsf.com",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
+  },
+
+    {
+    "slug": "kdv",
+    "name": "server6",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/topiacube.org",
+    "discord": "https://discord.gg/yourlink",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
+  },
+
+    {
+    "slug": "sfdsfgsgs-dff",
+    "name": "server7",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/topiacube.org",
+    "discord": "https://discord.gg/yourlink",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
+  },
+
+    {
+    "slug": "sfadfdsdf",
+    "name": "server8",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/topiacube.org",
+    "discord": "https://discord.gg/yourlink",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
+  },
+
+      {
+    "slug": "csafsadfs",
+    "name": "server9",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/topiacube.org",
+    "discord": "https://discord.gg/yourlink",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
+  },
+
+        {
+    "slug": "afafa",
+    "name": "server10",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/topiacube.org",
+    "discord": "https://discord.gg/yourlink",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
+  },
+
+        {
+    "slug": "sfadfsaf",
+    "name": "server11",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/topiacube.org",
+    "discord": "https://discord.gg/yourlink",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
+  },
+
+    {
+    "slug": "efsdfs",
+    "name": "server12",
+    "tags1": "ВИЖИВАННЯ",
+    "tags2": "1.20.1, PVE",
+    "ip": "chillzone.space",
+    "api": "https://api.mcsrvstat.us/2/topiacube.org",
+    "discord": "https://discord.gg/yourlink",
+    "description": "Короткий опис сервера. Правила, режими, особливості.",
+    "icon": "/icons/qwerty.jpg"
   }
 
-]
+] 
