@@ -5,7 +5,6 @@
   "name": "server1",
   "ip": "play.server1.ua",
   "api": "https://api.mcsrvstat.us/2/chillzone.space",
-  "discord": "https://discord.gg/yourlink",
   "description": "Короткий опис сервера. Правила, режими, особливості.",
   "icon": "/icons/default.png",
 
@@ -15,7 +14,7 @@
   "category": "survival",
   "edition": "java",
   "version": "1.20.1",
-  "mode": "pve",
+  "id": "1",
   "country": "UA",
   "lang": ["uk"],
   "tags": ["ukraine", "survival", "pve"]
