@@ -5,6 +5,9 @@ import servers from "../data/servers.json";
 ---
 
 <Layout title="UAMON">
+  <h1 style="display:none">
+  Український моніторинг серверів Minecraft
+</h1>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {servers.map((server) => (
       <ServerCard server={server} />
