@@ -6,13 +6,17 @@ import "../styles/global.css";
 <!doctype html>
 <html lang="uk">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>UAMON — Український моніторинг серверів Minecraft</title>
-    <meta
-  name="description"
-  content="UAMON — незалежний український моніторинг серверів Minecraft. Онлайн серверів, IP адреси, режими гри та жива статистика." />
-  </head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{title ?? "UAMON — Український моніторинг серверів Minecraft"}</title>
+
+  <meta
+    name="description"
+    content="UAMON — незалежний український моніторинг серверів Minecraft. Онлайн серверів, IP адреси, режими гри та жива статистика."
+  />
+</head>
+
 
   <!-- BODY як flex-контейнер, щоб футер був ЗАВЖДИ знизу -->
   <body class="min-h-screen bg-neutral-800 text-white flex flex-col">
