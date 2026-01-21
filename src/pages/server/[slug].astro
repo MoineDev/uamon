@@ -38,17 +38,19 @@ const { server } = Astro.props;
           <p class="text-sm font-bold text-white/60 uppercase">{server.tags2}</p>
 
           <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="text-sm text-white/80">
-              IP: <span class="font-semibold text-white">{server.ip}</span>
-            </span>
+            <p class="text-sm text-white/90 truncate">IP:</p>
+            <p class="text-sm text-white/90 truncate">{server.ip}</p>
 
-            <button
-              type="button"
-              class="copy-ip text-xs text-neutral-300 hover:text-white underline"
-              data-ip={server.ip}
-            >
-              Скопіювати IP
-            </button>
+        <button
+        type="button"
+        class="copy-ip px-3 py-1.5 rounded-lg text-xs font-semibold
+               bg-neutral-700/70 border border-white/10
+               text-white/90 hover:bg-neutral-700 hover:text-white
+               active:scale-[0.97] transition"
+        data-ip={server.ip}
+      >
+        Скопіювати IP
+      </button>
 
             <span class="text-sm text-white/80">
               Онлайн: <span class="js-online">…</span>
