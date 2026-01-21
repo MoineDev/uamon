@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FAQ from "../components/FAQ.astro";
+---
+
+<Layout title="FAQ — UAMON">
+<button
+  onclick="
+    if (history.length > 1) {
+      history.back();
+    } else {
+      window.location.href = '/';
+    }
+  "
+  class="mb-6 inline-flex items-center gap-2 text-white/70 hover:text-white transition"
+>
+  ← Назад
+</button>
+
+
+  <h1 class="text-3xl font-extrabold mb-8">
+    Часті питання про UAMON
+  </h1>
+
+  <FAQ />
+</Layout>

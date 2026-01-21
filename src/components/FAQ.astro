@@ -1,0 +1,37 @@
+---
+const items = [
+  {
+    q: "Що таке UAMON?",
+    a: "UAMON — це український моніторинг Minecraft серверів з ручною модерацією."
+  },
+  {
+    q: "Як додати сервер у моніторинг?",
+    a: "Щоб додати сервер, приєднайтесь до нашого Discord та подайте заявку."
+  },
+  {
+    q: "Чи безкоштовно додавати сервер?",
+    a: "Так, додавання сервера повністю безкоштовне."
+  },
+  {
+    q: "Як часто оновлюється онлайн серверів?",
+    a: "Онлайн оновлюється автоматично з інтервалом, щоб не перевищувати ліміти API."
+  }
+];
+---
+
+<section class="mt-16">
+  <h2 class="text-2xl font-extrabold mb-6">FAQ — Часті питання</h2>
+
+  <div class="space-y-4">
+    {items.map(item => (
+      <details class="rounded-xl bg-neutral-800/60 border border-white/10 p-4">
+        <summary class="cursor-pointer font-bold text-white">
+          {item.q}
+        </summary>
+        <p class="mt-2 text-white/80">
+          {item.a}
+        </p>
+      </details>
+    ))}
+  </div>
+</section>
