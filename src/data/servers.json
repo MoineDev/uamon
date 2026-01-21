@@ -1,23 +1,23 @@
 [
 
   {
-  "slug": "server1",
-  "name": "server1",
-  "ip": "play.server1.ua",
-  "api": "https://api.mcsrvstat.us/2/chillzone.space",
-  "description": "Короткий опис сервера. Правила, режими, особливості.",
-  "icon": "/icons/default.png",
+  "slug": "TerraBlade",
+  "name": "Terra Blade",
+  "ip": "157.90.35.116:25571",
+  "api": "https://api.mcsrvstat.us/2/157.90.35.116:25571",
+  "description": "*✧ Ванільний+ Вічний 1.21.10 український сервер - Terra Blade - запрошує всіх свідомих любителів кубів. ❤️ ✧ Затишний приватний безпечний сервер, який ви давно шукали! ✧✧ Terra Blade - Вічний Рай Будівельників! ✧*",
+  "icon": "/icons/TerraBlade.png",
 
-  "tags1": "Виживання",
-  "tags2": "1.20.1, PVE",
+  "tags1": "ваніла+,виживання,smp",
+  "tags2": "1.21.10,вічний,економіка ",
 
   "category": "survival",
   "edition": "java",
-  "version": "1.20.1",
+  "version": "1.21.10",
   "id": "1",
   "country": "UA",
   "lang": ["uk"],
   "tags": ["ukraine", "survival", "pve"]
 }
 
-] 
+]
