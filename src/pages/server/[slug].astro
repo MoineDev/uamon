@@ -62,7 +62,9 @@ const { server } = Astro.props;
       {server.description && (
         <div class="mt-6">
           <h2 class="text-lg font-extrabold text-white">Опис</h2>
-          <p class="mt-2 text-white/80 leading-relaxed">{server.description}</p>
+          <p class="mt-2 text-white/80 leading-relaxed whitespace-pre-line">
+  {server.description}
+</p>
         </div>
       )}
     </div>
