@@ -118,5 +118,22 @@
     "country": "UA",
     "lang": ["uk"],
     "tags": ["ukraine", "survival", "pve"]
+  },
+    {
+    "slug": "BeneneCraft",
+    "name": "BeneneCraft",
+    "ip": "mc.benenecraft.net",
+    "api": "https://api.mcsrvstat.us/2/mc.benenecraft.net",
+    "description": "Ванільний сервер з приємним комюніті. Додатково у нас є BedWars BuildBattle SkyBlock OneBlock. Наш телеграм - @benenecraft.net Діскорд - dsc.gg/benenecraft",
+    "icon": "/icons/BeneneCraft.png",
+    "tags1": "SMP(ванільне виживання), BedWars",  
+    "tags2": "BuildBattle, SkyBlock, OneBlock",
+    "category": "survival",
+    "edition": "java",
+    "version": "1.21.10",
+    "id": "4",
+    "country": "UA",
+    "lang": ["uk"],
+    "tags": ["ukraine", "survival", "pve"]
   }
 ]
