@@ -1,0 +1,29 @@
+---
+import servers from "../../data/servers.json";
+
+const site = "https://uamon.online";
+
+const staticUrls = [
+  "/",                 // головна
+  "/monitoring/java",  // java
+  "/faq",              // faq
+  "/launchers",        // лаунчери
+  "/monitoring/bedrock" // можна лишити (в розробці)
+];
+
+const serverUrls = servers.map((s) => `/server/${s.slug}`);
+
+const urls = [...staticUrls, ...serverUrls];
+
+const now = new Date().toISOString();
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {urls.map((path) => (
+    <url>
+      <loc>{site}{path}</loc>
+      <lastmod>{now}</lastmod>
+    </url>
+  ))}
+</urlset>
