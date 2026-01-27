@@ -41,16 +41,16 @@ const { server } = Astro.props;
             <p class="text-sm text-white/90 truncate">IP:</p>
             <p class="text-sm text-white/90 truncate">{server.ip}</p>
 
-        <button
-        type="button"
-        class="copy-ip px-3 py-1.5 rounded-lg text-xs font-semibold
-               bg-neutral-700/70 border border-white/10
-               text-white/90 hover:bg-neutral-700 hover:text-white
-               active:scale-[0.97] transition"
-        data-ip={server.ip}
-      >
-        Скопіювати IP
-      </button>
+            <button
+              type="button"
+              class="copy-ip px-3 py-1.5 rounded-lg text-xs font-semibold
+                     bg-neutral-700/70 border border-white/10
+                     text-white/90 hover:bg-neutral-700 hover:text-white
+                     active:scale-[0.97] transition"
+              data-ip={server.ip}
+            >
+              Скопіювати IP
+            </button>
 
             <span class="text-sm text-white/80">
               Онлайн: <span class="js-online">…</span>
@@ -63,8 +63,65 @@ const { server } = Astro.props;
         <div class="mt-6">
           <h2 class="text-lg font-extrabold text-white">Опис</h2>
           <p class="mt-2 text-white/80 leading-relaxed whitespace-pre-line">
-  {server.description}
-</p>
+            {server.description}
+          </p>
+
+          {/*  БЛОК ПОСИЛАНЬ */}
+          {(
+  server.website ||
+  server.discord ||
+  server.telegram ||
+  server.youtube ||
+  server.tiktok
+) && (
+  <div class="mt-6 rounded-xl border border-white/15 bg-neutral-900/60 backdrop-blur">
+    <div class="border-b border-white/10 px-4 py-2 text-sm font-semibold text-white/70">
+      Посилання
+    </div>
+
+    <div class="flex flex-col gap-1 p-3 text-sm">
+
+      {server.website && (
+        <a href={server.website} target="_blank"
+          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+          🌐 <span>Вебсайт</span>
+        </a>
+      )}
+
+      {server.discord && (
+        <a href={server.discord} target="_blank"
+          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+          💬 <span>Discord</span>
+        </a>
+      )}
+
+      {server.telegram && (
+        <a href={server.telegram} target="_blank"
+          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+          ✈️ <span>Telegram</span>
+        </a>
+      )}
+
+      {server.youtube && (
+        <a href={server.youtube} target="_blank"
+          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+          ▶️ <span>YouTube</span>
+        </a>
+      )}
+
+      {server.tiktok && (
+        <a href={server.tiktok} target="_blank"
+          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+          🎵 <span>TikTok</span>
+        </a>
+      )}
+
+    </div>
+  </div>
+
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -90,7 +147,6 @@ const { server } = Astro.props;
                 copyBtn.classList.remove("text-green-400");
               }, 1500);
             } catch (e) {
-              // якщо clipboard заблокований браузером
               alert("Не вдалося скопіювати. Спробуй вручну: " + ip);
             }
           });
