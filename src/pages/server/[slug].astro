@@ -66,72 +66,67 @@ const { server } = Astro.props;
             {server.description}
           </p>
 
-          {/*  БЛОК ПОСИЛАНЬ */}
-          {(
-  server.website ||
-  server.discord ||
-  server.telegram ||
-  server.youtube ||
-  server.tiktok||
-  server.map
-) && (
-  <div class="mt-6 rounded-xl border border-white/15 bg-neutral-900/60 backdrop-blur">
-    <div class="border-b border-white/10 px-4 py-2 text-sm font-semibold text-white/70">
-      Посилання
-    </div>
+    {/*  БЛОК ПОСИЛАНЬ */}
+    {(
+      server.website ||
+      server.discord ||
+      server.telegram ||
+      server.youtube ||
+      server.tiktok ||
+      server.map
+    ) && (
+      <div class="mt-6 rounded-xl border border-white/15 bg-neutral-900/60 backdrop-blur">
+        <div class="border-b border-white/10 px-4 py-2 text-sm font-semibold text-white/70">
+          Посилання
+        </div>
 
-    <div class="flex flex-col gap-1 p-3 text-sm">
+        <div class="flex flex-col gap-1 p-3 text-sm">
+          {server.website && (
+            <a href={server.website} target="_blank"
+              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+              🌐 <span>Вебсайт</span>
+            </a>
+          )}
 
-      {server.website && (
-        <a href={server.website} target="_blank"
-          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-          🌐 <span>Вебсайт</span>
-        </a>
-      )}
+          {server.map && (
+            <a href={server.map} target="_blank"
+              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+              🗺️ <span>Мапа</span>
+            </a>
+          )}
 
-            {server.map && (
-        <a href={server.map} target="_blank"
-          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-          🗺️ <span>Мапа</span>
-        </a>
-      )}
+          {server.discord && (
+            <a href={server.discord} target="_blank"
+              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+              💬 <span>Discord</span>
+            </a>
+          )}
 
-      {server.discord && (
-        <a href={server.discord} target="_blank"
-          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-          💬 <span>Discord</span>
-        </a>
-      )}
+          {server.telegram && (
+            <a href={server.telegram} target="_blank"
+              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+              ✈️ <span>Telegram</span>
+            </a>
+          )}
 
-      {server.telegram && (
-        <a href={server.telegram} target="_blank"
-          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-          ✈️ <span>Telegram</span>
-        </a>
-      )}
+          {server.youtube && (
+            <a href={server.youtube} target="_blank"
+              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+              ▶️ <span>YouTube</span>
+            </a>
+          )}
 
-      {server.youtube && (
-        <a href={server.youtube} target="_blank"
-          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-          ▶️ <span>YouTube</span>
-        </a>
-      )}
-
-      {server.tiktok && (
-        <a href={server.tiktok} target="_blank"
-          class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-          🎵 <span>TikTok</span>
-        </a>
-      )}
-
-    </div>
-  </div>
-
-              </div>
-            </div>
+          {server.tiktok && (
+            <a href={server.tiktok} target="_blank"
+              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+              🎵 <span>TikTok</span>
+            </a>
           )}
         </div>
-      )}
+      </div>
+    )}
+  </div>
+)}
     </div>
 
     <!-- ОДИН скрипт: копіювання + онлайн + крапка -->
