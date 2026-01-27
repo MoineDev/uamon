@@ -20,6 +20,7 @@
     "discord": "",
     "telegram": "",
     "youtube": "",
+    "map": "",
     "tiktok": ""
   },
   {
@@ -42,6 +43,7 @@
     "discord": "https://discord.gg/zHc9kWudYa",
     "telegram": "https://t.me/dragonsevenu",
     "youtube": "",
+    "map": "",
     "tiktok": ""
   },
   {
@@ -64,6 +66,7 @@
     "discord": "https://discord.com/invite/XDMgPafbnT",
     "telegram": "https://t.me/yavorium",
     "youtube": "",
+    "map": "",
     "tiktok": ""
   },
   {
@@ -86,6 +89,7 @@
     "discord": "https://discord.gg/mUqYXc5Wrr",
     "telegram": "",
     "youtube": "",
+    "map": "",
     "tiktok": ""
   },
   {
@@ -108,6 +112,7 @@
     "discord": "https://discord.gg/57nWapUgvT",
     "telegram": "",
     "youtube": "",
+    "map": "",
     "tiktok": ""
   },
     {
@@ -127,9 +132,10 @@
     "lang": ["uk"],
     "tags": ["ukraine", "survival", "pve"],
     "website": "https://cleverfox.com.ua/",
-    "discord": "",
+    "discord": "https://discord.gg/cleverfox",
     "telegram": "",
     "youtube": "",
+    "map": "https://cleverfox.com.ua/map",
     "tiktok": "https://www.tiktok.com/@cleverfox.ua?_r=1&_t=ZS-93Q65KorNAI"
   },
   {
@@ -152,6 +158,7 @@
     "discord": "https://discord.gg/HqJj6U4U6h",
     "telegram": "https://t.me/prosto_land_bot",
     "youtube": "",
+    "map": "",
     "tiktok": ""
   },
     {
@@ -174,13 +181,14 @@
     "discord": "",
     "telegram": "",
     "youtube": "",
+    "map": "",
     "tiktok": ""
   },
       {
     "slug": "MineCorrupted",
     "name": "MineCorrupted",
-    "ip": "1419363472520515675",
-    "api": "https://api.mcsrvstat.us/2/1419363472520515675",
+    "ip": "none",
+    "api": "https://api.mcsrvstat.us/2/none",
 "description": "MineCorrupted: Початок нового етапу!\n Що ми із себе представляємо?\nMineCorrupted —це новий український майнкрафт проєкт із модами і для початку ми вирішили створити сервер TMR(Техно Магія РПГ).Сам сервер буде оснований на 1 із популярних збірок All The Mods\nВ наших планах не тільки запустити сервер із цією збіркою , а й додати щось своє\n  Що чекатиме на тебе після релізу:\nАбсолютно нові та хардкорні крафти\nНові квести які допоможуть розібратися усьому\nНові механізми які будуть спрямованні на полегшення чи ускладнення деякіх етапів гри\nі багато нового\n\nENDGAME БАТЛИ \nТак вам не причулося , ендгеймовські батли.На проєкті що вайпу між серверами буде проводитися спідран-батли основані на швидкому проходженні збірки.\nЯкою буде реалізація?\nНа сервері буде своєрідний енд-геймівський трофей що символізує фінал проходження збірки , але система крафта його буде дещо не звичною ніж на серверах подібного контенту.\nПризи за таке просто бомба\nДонат привілегія, кейси , валюта\nМонети на наступний вайп\nУнікальна діскорд роль , для любителей колекцінувати їх\n\n   Що ми обіцяємо зі своєї сторони?\nГарний та оптимізований проєкт\nНе токсичне ком'юніті\nКрутий контент\nРізні та цікаві івенти\nНу і багато подібних серверів на нашому проєкті із цікавими реалізаціями та механіками\n\nЯкщо ми тебе зацікавили , то переходь за посиланням нижче.Тут ти бачитимеш всі новими , етапи розвитку нашого проєкту",
     "icon": "/icons/MineCorrupted.png",
     "tags1": "Український модовий майнкрафт",  
@@ -196,6 +204,7 @@
     "discord": "https://discord.gg/aQww2qUvNN",
     "telegram": "",
     "youtube": "",
+    "map": "",
     "tiktok": ""
   }
 ]
