@@ -1,0 +1,119 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pirateLaunchers = [
+  {
+    name: "CL-Launcher",
+    desc: "Український піратський Minecraft Java лаунчер, створений для гри на піратських серверах.",
+    url: "https://cl-launcher.vercel.app/",
+  },
+    {
+    name: "PolyMc Launcher",
+    desc: "Зручний лаунчер для модпаків та керування інстансами (Java).",
+    url: "https://polymc.org/download/",
+  },
+];
+
+const licensedLaunchers = [
+  {
+    name: "Офіційний Minecraft Launcher",
+    desc: "Найбезпечніший варіант для гри з ліцензійним акаунтом.",
+    url: "https://www.minecraft.net/download",
+  },
+  {
+    name: "Modrinth Launcher",
+    desc: "Сучасний open-source лаунчер для Minecraft Java з підтримкою модів, модпаків і офіційного акаунта. Орієнтований на безпеку, простоту та спільноту.",
+    url: "https://modrinth.com/app",
+  },
+];
+---
+
+<Layout title="Лаунчери — UAMON">
+  <main class="mx-auto max-w-5xl px-4 py-10">
+    <a href="/" class="text-sm text-white/70 hover:text-white underline">← На головну</a>
+
+    {/* Заголовок */}
+    <section class="mt-6 rounded-2xl border border-white/10 bg-neutral-800/50 p-6 md:p-8">
+      <h1 class="text-3xl font-extrabold text-white">
+        ❌ Не використовуйте російські лаунчери
+      </h1>
+
+      <p class="mt-3 text-white/75 leading-relaxed">
+        Російські (московські) Minecraft-лаунчери можуть становити ризик для безпеки та приватності.
+        Часто вони мають закритий код і здатні збирати дані, токени акаунтів або іншу інформацію без
+        відома користувача. Також використання таких сервісів підтримує інфраструктуру країни-агресора.
+      </p>
+
+      <div class="mt-5 rounded-xl border border-white/10 bg-neutral-900/40 p-4 text-sm text-white/70">
+        Нижче — підбірка альтернатив: піратські (для піратських серверів) та ліцензійні (для офіційних акаунтів).
+      </div>
+    </section>
+
+    {/* Піратські */}
+    <section class="mt-8">
+      <div class="flex items-end justify-between gap-3">
+        <h2 class="text-xl font-extrabold text-white">🔓 Піратські лаунчери</h2>
+        <span class="text-sm text-white/60">Безкоштовні альтернативи</span>
+      </div>
+
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
+        {pirateLaunchers.map((l) => (
+          <div class="rounded-2xl border border-white/10 bg-neutral-800/40 p-5">
+            <h3 class="text-base font-extrabold text-white">{l.name}</h3>
+            <p class="mt-2 text-sm text-white/70">{l.desc}</p>
+
+            <div class="mt-4">
+              <a
+                href={l.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-xl
+                       border border-white/15 bg-neutral-900/40 px-4 py-2.5
+                       text-sm font-semibold text-white hover:bg-white/5 transition"
+              >
+                Перейти
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Ліцензійні */}
+    <section class="mt-10">
+      <div class="flex items-end justify-between gap-3">
+        <h2 class="text-xl font-extrabold text-white">🔐 Ліцензійні лаунчери</h2>
+        <span class="text-sm text-white/60">Для офіційних акаунтів</span>
+      </div>
+
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
+        {licensedLaunchers.map((l) => (
+          <div class="rounded-2xl border border-white/10 bg-neutral-800/40 p-5">
+            <h3 class="text-base font-extrabold text-white">{l.name}</h3>
+            <p class="mt-2 text-sm text-white/70">{l.desc}</p>
+
+            <div class="mt-4">
+              <a
+                href={l.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center rounded-xl
+                       border border-white/15 bg-neutral-900/40 px-4 py-2.5
+                       text-sm font-semibold text-white hover:bg-white/5 transition"
+              >
+                Перейти
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* Дисклеймер */}
+    <section class="mt-10 rounded-2xl border border-white/10 bg-neutral-900/40 p-5">
+      <p class="text-sm text-white/65">
+        UAMON публікує інформацію з ознайомчою метою. Використовуйте сторонні лаунчери на власний ризик.
+      </p>
+    </section>
+  </main>
+</Layout>
