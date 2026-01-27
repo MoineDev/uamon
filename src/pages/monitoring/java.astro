@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ServerCard from "../../components/ServerCard.astro";
+import servers from "../../data/servers.json";
+---
+
+<Layout title="UAMON">
+  <h1 style="display:none">
+  Український моніторинг серверів Minecraft
+</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {servers.map((server) => (
+      <ServerCard server={server} />
+    ))}
+  </div>
+
+  <script is:inline>
+    function sleep(ms) {
+      return new Promise((r) => setTimeout(r, ms));
+    }
+
+    async function loadOnline(card) {
+      const api = card.dataset.api;
+      const onlineEl = card.querySelector(".js-online");
+      const dot = card.querySelector(".status-dot");
+
+      if (!api || !onlineEl || !dot) return;
+
+      try {
+        const res = await fetch(api, { cache: "no-store" });
+        const data = await res.json();
+
+        const isUp = data?.online === true;
+        const online = data?.players?.online ?? 0;
+        const max = data?.players?.max ?? 0;
+
+        onlineEl.textContent = isUp ? `${online}/${max}` : "офлайн";
+
+        dot.classList.remove("bg-gray-500", "bg-green-500", "bg-red-500");
+        dot.classList.add(isUp ? "bg-green-500" : "bg-red-500");
+
+        card.classList.toggle("opacity-60", !isUp);
+      } catch {
+        onlineEl.textContent = "офлайн";
+        dot.classList.remove("bg-green-500", "bg-gray-500");
+        dot.classList.add("bg-red-500");
+        card.classList.add("opacity-60");
+      }
+    }
+
+    async function refreshAll() {
+      const cards = Array.from(document.querySelectorAll("[data-server-card]"));
+
+      // НЕ одночасно → без API-бану
+      for (const card of cards) {
+        await loadOnline(card);
+        await sleep(300); // можна 300–500
+      }
+    }
+
+    // Copy IP — не переходити на сторінку
+    document.addEventListener("click", async (e) => {
+      const btn = e.target.closest(".copy-ip");
+      if (!btn) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const ip = btn.dataset.ip;
+      if (!ip) return;
+
+      try {
+        await navigator.clipboard.writeText(ip);
+        const old = btn.textContent;
+        btn.textContent = "Скопійовано!";
+        btn.classList.add("text-green-300");
+        setTimeout(() => {
+          btn.textContent = old;
+          btn.classList.remove("text-green-300");
+        }, 1200);
+      } catch {}
+    });
+
+    refreshAll();
+    setInterval(refreshAll, 120000); // 2 хв — без спаму
+  </script>
+</Layout>
