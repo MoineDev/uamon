@@ -1,20 +1,12 @@
 ---
-import servers from "../../data/servers.json";
+import servers from "../data/servers.json";
 
 const site = "https://uamon.online";
 
-const staticUrls = [
-  "/",                 // головна
-  "/monitoring/java",  // java
-  "/faq",              // faq
-  "/launchers",        // лаунчери
-  "/monitoring/bedrock" // можна лишити (в розробці)
-];
-
+const staticUrls = ["/", "/monitoring/java", "/faq", "/launchers"];
 const serverUrls = servers.map((s) => `/server/${s.slug}`);
 
 const urls = [...staticUrls, ...serverUrls];
-
 const now = new Date().toISOString();
 ---
 
