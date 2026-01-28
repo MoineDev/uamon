@@ -37,8 +37,12 @@ const { server } = Astro.props;
       {server.tags2}
     </p>
 
-    <div class="mt-2 flex items-center justify-between gap-3">
-      <p class="text-sm text-white/90 truncate">{server.ip}</p>
+    <div class="mt-2 flex flex-wrap items-center gap-3">
+      <!-- IP -->
+      <p class="text-sm text-white/90 truncate flex items-center gap-2">
+        <i class="fa-solid fa-server text-white/60"></i>
+        <span>{server.ip}</span>
+      </p>
 
       <!-- Copy button -->
       <button
@@ -46,15 +50,46 @@ const { server } = Astro.props;
         class="copy-ip px-3 py-1.5 rounded-lg text-xs font-semibold
                bg-neutral-700/70 border border-white/10
                text-white/90 hover:bg-neutral-700 hover:text-white
-               active:scale-[0.97] transition"
+               active:scale-[0.97] transition flex items-center gap-2"
         data-ip={server.ip}
       >
+        <i class="fa-solid fa-copy"></i>
         Скопіювати IP
       </button>
 
-      <p class="text-sm text-white/80 whitespace-nowrap">
+      <!-- Online -->
+      <p class="text-sm text-white/80 whitespace-nowrap flex items-center gap-2">
+        <i class="fa-solid fa-users text-white/60"></i>
         Онлайн: <span class="js-online">…</span>
       </p>
     </div>
   </div>
 </a>
+
+<!-- ВАЖЛИВО: щоб кнопка копіювання не відкривала сторінку -->
+<script is:inline>
+  document.addEventListener("click", async (e) => {
+    const btn = e.target.closest?.(".copy-ip");
+    if (!btn) return;
+
+    // зупиняємо клік по <a>
+    e.preventDefault();
+    e.stopPropagation();
+
+    const ip = btn.dataset.ip || "";
+    try {
+      await navigator.clipboard.writeText(ip);
+
+      const oldHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Скопійовано!';
+      btn.classList.add("text-green-400");
+
+      setTimeout(() => {
+        btn.innerHTML = oldHTML;
+        btn.classList.remove("text-green-400");
+      }, 1200);
+    } catch {
+      alert("Не вдалося скопіювати. Спробуй вручну: " + ip);
+    }
+  });
+</script>

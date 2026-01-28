@@ -5,17 +5,23 @@ import servers from "../../data/servers.json";
 export function getStaticPaths() {
   return servers.map((s) => ({
     params: { slug: s.slug },
-    props: { server: s },
   }));
 }
 
-const { server } = Astro.props;
+const { slug } = Astro.params;
+const server = servers.find((s) => s.slug === slug);
+
+if (!server) {
+  return new Response("Server not found", { status: 404 });
+}
 ---
 
 <Layout title={`${server.name} — UAMON`}>
   <!-- Передаємо API сюди  -->
   <main class="mx-auto max-w-3xl px-4 py-8" data-api={server.api}>
-    <a href="/monitoring/java" class="text-sm text-white/70 hover:text-white underline">← Назад</a>
+    <a href="/monitoring/java" class="text-sm text-white/70 hover:text-white underline">
+      <i class="fa-solid fa-arrow-left mr-2"></i>Назад
+    </a>
 
     <div class="mt-4 rounded-2xl bg-neutral-800/60 border border-white/10 p-6">
       <div class="flex items-start gap-4">
@@ -38,21 +44,30 @@ const { server } = Astro.props;
           <p class="text-sm font-bold text-white/60 uppercase">{server.tags2}</p>
 
           <div class="mt-3 flex flex-wrap items-center gap-3">
-            <p class="text-sm text-white/90 truncate">IP:</p>
-            <p class="text-sm text-white/90 truncate">{server.ip}</p>
+            <p class="text-sm text-white/90 truncate flex items-center gap-2">
+              <i class="fa-solid fa-server text-white/60"></i>
+              <span>IP:</span>
+            </p>
+
+            <p class="text-sm text-white/90 truncate flex items-center gap-2">
+              
+              <span>{server.ip}</span>
+            </p>
 
             <button
               type="button"
               class="copy-ip px-3 py-1.5 rounded-lg text-xs font-semibold
                      bg-neutral-700/70 border border-white/10
                      text-white/90 hover:bg-neutral-700 hover:text-white
-                     active:scale-[0.97] transition"
+                     active:scale-[0.97] transition flex items-center gap-2"
               data-ip={server.ip}
             >
+              <i class="fa-solid fa-copy"></i>
               Скопіювати IP
             </button>
 
-            <span class="text-sm text-white/80">
+            <span class="text-sm text-white/80 flex items-center gap-2">
+              <i class="fa-solid fa-users text-white/60"></i>
               Онлайн: <span class="js-online">…</span>
             </span>
           </div>
@@ -61,72 +76,83 @@ const { server } = Astro.props;
 
       {server.description && (
         <div class="mt-6">
-          <h2 class="text-lg font-extrabold text-white">Опис</h2>
+          <h2 class="text-lg font-extrabold text-white flex items-center gap-2">
+            <i class="fa-solid fa-align-left text-white/60"></i>
+            Опис
+          </h2>
+
           <p class="mt-2 text-white/80 leading-relaxed whitespace-pre-line">
             {server.description}
           </p>
 
-    {/*  БЛОК ПОСИЛАНЬ */}
-    {(
-      server.website ||
-      server.discord ||
-      server.telegram ||
-      server.youtube ||
-      server.tiktok ||
-      server.map
-    ) && (
-      <div class="mt-6 rounded-xl border border-white/15 bg-neutral-900/60 backdrop-blur">
-        <div class="border-b border-white/10 px-4 py-2 text-sm font-semibold text-white/70">
-          Посилання
+          {/*  БЛОК ПОСИЛАНЬ */}
+          {(
+            server.website ||
+            server.discord ||
+            server.telegram ||
+            server.youtube ||
+            server.tiktok ||
+            server.map
+          ) && (
+            <div class="mt-6 rounded-xl border border-white/15 bg-neutral-900/60 backdrop-blur">
+              <div class="border-b border-white/10 px-4 py-2 text-sm font-semibold text-white/70 flex items-center gap-2">
+                <i class="fa-solid fa-link text-white/60"></i>
+                Посилання
+              </div>
+
+              <div class="flex flex-col gap-1 p-3 text-sm">
+                {server.website && (
+                  <a href={server.website} target="_blank"
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+                    <i class="fa-solid fa-globe text-white/70"></i>
+                    <span>Вебсайт</span>
+                  </a>
+                )}
+
+                {server.map && (
+                  <a href={server.map} target="_blank"
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+                    <i class="fa-solid fa-map-location-dot text-white/70"></i>
+                    <span>Мапа</span>
+                  </a>
+                )}
+
+                {server.discord && (
+                  <a href={server.discord} target="_blank"
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+                    <i class="fa-brands fa-discord text-white/70"></i>
+                    <span>Discord</span>
+                  </a>
+                )}
+
+                {server.telegram && (
+                  <a href={server.telegram} target="_blank"
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+                    <i class="fa-brands fa-telegram text-white/70"></i>
+                    <span>Telegram</span>
+                  </a>
+                )}
+
+                {server.youtube && (
+                  <a href={server.youtube} target="_blank"
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+                    <i class="fa-brands fa-youtube text-white/70"></i>
+                    <span>YouTube</span>
+                  </a>
+                )}
+
+                {server.tiktok && (
+                  <a href={server.tiktok} target="_blank"
+                    class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
+                    <i class="fa-brands fa-tiktok text-white/70"></i>
+                    <span>TikTok</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
         </div>
-
-        <div class="flex flex-col gap-1 p-3 text-sm">
-          {server.website && (
-            <a href={server.website} target="_blank"
-              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-              🌐 <span>Вебсайт</span>
-            </a>
-          )}
-
-          {server.map && (
-            <a href={server.map} target="_blank"
-              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-              🗺️ <span>Мапа</span>
-            </a>
-          )}
-
-          {server.discord && (
-            <a href={server.discord} target="_blank"
-              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-              💬 <span>Discord</span>
-            </a>
-          )}
-
-          {server.telegram && (
-            <a href={server.telegram} target="_blank"
-              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-              ✈️ <span>Telegram</span>
-            </a>
-          )}
-
-          {server.youtube && (
-            <a href={server.youtube} target="_blank"
-              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-              ▶️ <span>YouTube</span>
-            </a>
-          )}
-
-          {server.tiktok && (
-            <a href={server.tiktok} target="_blank"
-              class="flex items-center gap-3 rounded-lg px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white transition">
-              🎵 <span>TikTok</span>
-            </a>
-          )}
-        </div>
-      </div>
-    )}
-  </div>
-)}
+      )}
     </div>
 
     <!-- ОДИН скрипт: копіювання + онлайн + крапка -->
@@ -143,10 +169,10 @@ const { server } = Astro.props;
             try {
               await navigator.clipboard.writeText(ip);
               const oldText = copyBtn.textContent;
-              copyBtn.textContent = "Скопійовано!";
+              copyBtn.innerHTML = '<i class="fa-solid fa-check"></i>Скопійовано!';
               copyBtn.classList.add("text-green-400");
               setTimeout(() => {
-                copyBtn.textContent = oldText;
+                copyBtn.innerHTML = '<i class="fa-solid fa-copy"></i>Скопіювати IP';
                 copyBtn.classList.remove("text-green-400");
               }, 1500);
             } catch (e) {
